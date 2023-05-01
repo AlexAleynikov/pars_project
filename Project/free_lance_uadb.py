@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from utils import DB_NAME, HEADERS, connect_db, create_table, insert_data
+from utils import HEADERS, connect_db, create_table, insert_data
 
 
 HOST = 'https://free-lance.ua/'
