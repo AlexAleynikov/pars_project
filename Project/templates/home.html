@@ -1,12 +1,52 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-    <title>Поиск данных</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/default.css')}}">
+
 </head>
+
 <body>
-    <form action="/search">
-        <input type="text" name="q" placeholder="Поиск">
-        <input type="submit" value="Найти">
-    </form>
+	<style>
+		body {
+			background-image: url("{{ url_for('static', filename='images/banner.jpg') }}");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+	</style>
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><span class="fa fa-bolt"></span><a href="#">TalentoHub</a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
+					<li><a href="#" accesskey="2" title="">Sign in</a></li>
+					<li><a href="#" accesskey="3" title="">Create account</a></li>
+					<li><a href="#" accesskey="4" title="">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="header-featured">
+		<div id="banner-wrapper">
+			<div id="banner" class="container">
+				<h2>Order search</h2>
+				<p> <strong>Here</strong> ,you can find a freelance project</p>
+				<form action="/search" id="fh5co-subscribe">
+					<div class="form-group">
+						<input type="text" name="q" class="form-control" placeholder="search">
+						<input type="submit" value="Send" class="btn btn-primary">
+						<p class="tip">Please enter your email address for early access.</p>
+					</div>
+				</form>
+
 </body>
+
 </html>

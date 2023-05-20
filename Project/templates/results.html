@@ -1,16 +1,50 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-    <title>Результаты поиска</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/default.css')}}">
+
 </head>
+
 <body>
-    <h1>Результаты поиска</h1>
-    <ul>
-        {% for result in results %}
-            <li>
-                <h2><a href="{{ result[2] }}">{{ result[1] }}</a></h2>
-            </li>
-        {% endfor %}
-    </ul>
+	<style>
+		body {
+			background-image: url("{{ url_for('static', filename='images/banner.jpg') }}");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+	</style>
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><span class="fa fa-bolt"></span><a href="#">TalentoHub</a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
+					<li><a href="#" accesskey="2" title="">Sign in</a></li>
+					<li><a href="#" accesskey="3" title="">Create account</a></li>
+					<li><a href="#" accesskey="4" title="">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="header-featured">
+		<div id="banner-wrapper">
+			<div id="banner" class="container">
+				<div class="col-lg-7 animate-box">
+					<ol action="/search" id="bullet">
+						{% for result in results %}
+						<li><a href="{{ result[2] }}">{{ result[1] }}</a></li>
+						{% endfor %}
+					</ol>
+				</div>
+
 </body>
+
 </html>

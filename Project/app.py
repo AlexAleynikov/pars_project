@@ -2,7 +2,9 @@ import os
 from flask import Flask, render_template, request
 import sqlite3
 
-app = Flask(__name__)
+
+app = Flask(__name__, static_folder='static')
+
 
 # путь к корневой директории проекта
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
