@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/banner.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-wrapper">
+        <div id="header" class="container">
+            <div id="logo">
+                <h1><span class="fa fa-bolt"></span><a href="#">TalentoHub</a></h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="current_page_item"><a href="{{ url_for('home') }}" accesskey="1" title="">Homepage</a></li>
+                    {% if session.get('logged_in') %}
+                        <li><a href="{{ url_for('logout') }}" accesskey="5" title="">Sign out</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}" accesskey="2" title="">Sign in</a></li>
+                        <li><a href="{{ url_for('register') }}" accesskey="3" title="">Create account</a></li>
+                    {% endif %}
+                    <li><a href="#" accesskey="4" title="">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	{% if error %}
+<div class="form-group">
+    <p class="error-message">{{ error }}</p>
+</div>
+{% endif %}
+
+    <div class="login-cssave">
+        <form action="{{ url_for('login') }}" method="POST">
+            <h3 class="text-center"></h3>
+            <div class="form-group">
+                <input class="form-control item" type="text" name="username" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Login" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control item" type="password" name="password" minlength="6" id="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block create-account" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
